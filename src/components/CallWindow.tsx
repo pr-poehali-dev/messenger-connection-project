@@ -17,6 +17,7 @@ export default function CallWindow({ chat, type, onEnd }: CallWindowProps) {
   const [duration, setDuration] = useState(0);
   const [isMuted, setIsMuted] = useState(false);
   const [isCameraOff, setIsCameraOff] = useState(false);
+  const [isSpeakerOn, setIsSpeakerOn] = useState(true);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -99,9 +100,13 @@ export default function CallWindow({ chat, type, onEnd }: CallWindowProps) {
         <Button
           size="icon"
           variant="ghost"
-          className="w-16 h-16 rounded-full bg-muted hover:bg-muted transition-all hover:scale-110"
+          onClick={() => setIsSpeakerOn(!isSpeakerOn)}
+          className={`
+            w-16 h-16 rounded-full transition-all hover:scale-110
+            ${isSpeakerOn ? 'bg-primary hover:bg-primary' : 'bg-muted hover:bg-muted'}
+          `}
         >
-          <Icon name="Volume2" size={24} />
+          <Icon name={isSpeakerOn ? 'Volume2' : 'VolumeX'} size={24} />
         </Button>
       </div>
 
