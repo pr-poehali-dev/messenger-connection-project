@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { SimpleAvatar, SimpleAvatarFallback } from '@/components/SimpleAvatar';
 import { Badge } from '@/components/ui/badge';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { SimpleScrollArea } from '@/components/SimpleScrollArea';
 import Icon from '@/components/ui/icon';
 
 interface Chat {
@@ -32,7 +32,7 @@ export default function ChatList({ onChatSelect }: { onChatSelect: (chat: Chat) 
   };
 
   return (
-    <ScrollArea className="h-full">
+    <SimpleScrollArea className="h-full">
       <div className="p-4 space-y-2">
         {mockChats.map((chat, index) => (
           <div
@@ -48,12 +48,11 @@ export default function ChatList({ onChatSelect }: { onChatSelect: (chat: Chat) 
           >
             <div className="flex items-center gap-3">
               <div className="relative">
-                <Avatar className="w-14 h-14 border-2 border-primary/20">
-                  <AvatarImage src={chat.avatar} />
-                  <AvatarFallback className={`${chat.color} text-white font-semibold`}>
+                <SimpleAvatar className="w-14 h-14 border-2 border-primary/20">
+                  <SimpleAvatarFallback className={`${chat.color} text-white font-semibold`}>
                     {chat.name[0]}
-                  </AvatarFallback>
-                </Avatar>
+                  </SimpleAvatarFallback>
+                </SimpleAvatar>
                 {chat.online && (
                   <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-background animate-pulse-glow" />
                 )}
@@ -77,6 +76,6 @@ export default function ChatList({ onChatSelect }: { onChatSelect: (chat: Chat) 
           </div>
         ))}
       </div>
-    </ScrollArea>
+    </SimpleScrollArea>
   );
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { SimpleAvatar, SimpleAvatarFallback } from '@/components/SimpleAvatar';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
@@ -38,12 +38,11 @@ export default function CallWindow({ chat, type, onEnd }: CallWindowProps) {
       
       <div className="relative z-10 text-center mb-8 animate-scale-in">
         <div className="relative inline-block mb-6">
-          <Avatar className="w-32 h-32 border-4 border-primary/30 shadow-2xl">
-            <AvatarImage src={chat.avatar} />
-            <AvatarFallback className={`${chat.color} text-white text-4xl font-bold`}>
+          <SimpleAvatar className="w-32 h-32 border-4 border-primary/30 shadow-2xl">
+            <SimpleAvatarFallback className={`${chat.color} text-white text-4xl font-bold`}>
               {chat.name[0]}
-            </AvatarFallback>
-          </Avatar>
+            </SimpleAvatarFallback>
+          </SimpleAvatar>
           <div className="absolute -inset-4 bg-primary/20 rounded-full animate-pulse-glow" />
         </div>
 

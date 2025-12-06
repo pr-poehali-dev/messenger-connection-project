@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { SimpleAvatar, SimpleAvatarFallback } from '@/components/SimpleAvatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ScrollArea } from '@/components/ui/scroll-area';
+import { SimpleScrollArea } from '@/components/SimpleScrollArea';
 import Icon from '@/components/ui/icon';
 
 interface Message {
@@ -66,12 +66,11 @@ export default function ChatWindow({ chat, onVideoCall, onVoiceCall }: ChatWindo
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <Avatar className="w-12 h-12 border-2 border-primary/20">
-                <AvatarImage src={chat.avatar} />
-                <AvatarFallback className={`${chat.color} text-white font-semibold`}>
+              <SimpleAvatar className="w-12 h-12 border-2 border-primary/20">
+                <SimpleAvatarFallback className={`${chat.color} text-white font-semibold`}>
                   {chat.name[0]}
-                </AvatarFallback>
-              </Avatar>
+                </SimpleAvatarFallback>
+              </SimpleAvatar>
               {chat.online && (
                 <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-500 rounded-full border-2 border-background animate-pulse-glow" />
               )}
@@ -112,7 +111,7 @@ export default function ChatWindow({ chat, onVideoCall, onVoiceCall }: ChatWindo
         </div>
       </div>
 
-      <ScrollArea className="flex-1 p-4">
+      <SimpleScrollArea className="flex-1 p-4">
         <div className="space-y-4">
           {messages.map((message, index) => (
             <div
@@ -136,7 +135,7 @@ export default function ChatWindow({ chat, onVideoCall, onVoiceCall }: ChatWindo
             </div>
           ))}
         </div>
-      </ScrollArea>
+      </SimpleScrollArea>
 
       <div className="p-4 border-t border-border bg-card/50 backdrop-blur-sm">
         <div className="flex gap-2">

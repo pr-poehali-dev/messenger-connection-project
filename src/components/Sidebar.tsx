@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { SimpleAvatar, SimpleAvatarFallback } from '@/components/SimpleAvatar';
 import Icon from '@/components/ui/icon';
 
 interface SidebarProps {
@@ -18,12 +18,11 @@ export default function Sidebar({ activeTab, onTabChange }: SidebarProps) {
   return (
     <div className="w-20 bg-card border-r border-border flex flex-col items-center py-4 gap-4">
       <div className="mb-4">
-        <Avatar className="w-12 h-12 border-2 border-primary cursor-pointer hover:scale-110 transition-transform">
-          <AvatarImage src="" />
-          <AvatarFallback className="bg-gradient-to-br from-primary to-secondary text-white font-bold">
+        <SimpleAvatar className="w-12 h-12 border-2 border-primary cursor-pointer hover:scale-110 transition-transform">
+          <SimpleAvatarFallback className="bg-gradient-to-br from-primary to-secondary text-white font-bold">
             Я
-          </AvatarFallback>
-        </Avatar>
+          </SimpleAvatarFallback>
+        </SimpleAvatar>
       </div>
 
       <div className="flex-1 flex flex-col gap-2">
